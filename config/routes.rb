@@ -1,4 +1,7 @@
 Florarails::Application.routes.draw do
+  resources :produtos
+
+
   get "grupos/index"
 
   # The priority is based upon order of creation:
