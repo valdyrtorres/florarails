@@ -148,4 +148,7 @@ h6 {font-size:0.5em;}
    url(../images/information.png) no-repeat 5px center;
    color: #000;
 }
+
+th {font-size:0.7em;color:#999;width:770px;}
+td {font-size:0.7em;background:#ffffcc;color:#3333cc;}
 /* Fim da folha de estilo */
