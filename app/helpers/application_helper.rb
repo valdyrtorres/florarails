@@ -14,5 +14,7 @@ def flash_helper
     end
     nil
 end
+def numero_em_reais (numero)
+    number_to_currency(numero, {:format => "%u %n", :unit => "R$", :separator => ",", :delimiter => "."})
 end
-
+end
