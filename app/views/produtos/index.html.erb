@@ -1,29 +1,26 @@
-<h1>Listing produtos</h1>
+<h1>Listagem dos Produtos</h1>
 
 <table>
   <tr>
-    <th>Titulo</th>
-    <th>Descricao</th>
-    <th>Preco</th>
+    <th>Título</th>
+    <th>Descrição</th>
+    <th>Preço</th>
     <th>Validade</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @produtos.each do |produto| %>
   <tr>
-    <td><%= produto.titulo %></td>
-    <td><%= produto.descricao %></td>
-    <td><%= produto.preco %></td>
-    <td><%= produto.validade %></td>
-    <td><%= link_to 'Show', produto %></td>
-    <td><%= link_to 'Edit', edit_produto_path(produto) %></td>
-    <td><%= link_to 'Destroy', produto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%=h produto.titulo %></td>
+    <td><%=h truncate(produto.descricao, :ommision => "...", :length => 35) %></td>
+    <td><%= numero_em_reais(produto.preco) %></td>
+    <td><%=h produto.validade.strftime("%d/%m/%Y") %></td>
+    <td><%= link_to image_tag("pencil_go.png"), produto %>
+    <%= link_to image_tag("pencil.png"), edit_produto_path(produto) %>
+    <%= link_to image_tag("pencil_delete.png"), produto, method: :delete, data: { confirm: 'Você tem certeza que deseja apagar o produto?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New Produto', new_produto_path %>
+<%= link_to image_tag("pencil_add.png"), new_produto_path %>
+<%= link_to 'Novo produto', new_produto_path %>
