@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121222165902) do
+ActiveRecord::Schema.define(:version => 20121223194554) do
 
   create_table "grupos", :force => true do |t|
     t.string   "descricao"
@@ -24,9 +24,13 @@ ActiveRecord::Schema.define(:version => 20121222165902) do
     t.text     "descricao"
     t.decimal  "preco"
     t.date     "validade"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
-    t.integer  "grupo_id",   :default => 1, :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.integer  "grupo_id",            :default => 1, :null => false
+    t.string   "imagem_file_name"
+    t.string   "imagem_content_type"
+    t.integer  "imagem_file_size"
+    t.datetime "imagem_updated_at"
   end
 
 end
