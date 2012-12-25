@@ -1,8 +1,9 @@
 Florarails::Application.routes.draw do
   get "catalogo/index"
+  get "catalogo/detalhes"
+  get "catalogo/adicionar_no_carrinho"
 
   resources :produtos
-
 
   get "grupos/index"
 
@@ -64,4 +65,5 @@ Florarails::Application.routes.draw do
   # match ':controller(/:action(/:id))(.:format)'
   resources :grupos
   resources :catalogo
+  
 end

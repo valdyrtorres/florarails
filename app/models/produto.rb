@@ -6,7 +6,8 @@ class Produto < ActiveRecord::Base
   belongs_to :grupo
   
   def self.localizar_produto_para_venda
-    find(:all, :order => "titulo",:conditions => ['validade >= ?', Date.current])
+    #find(:all, :order => "titulo",:conditions => ['validade >= ?', Date.current])
+    find(:all, :order => "titulo")
   end
   
   def to_param
