@@ -3,6 +3,7 @@
 <table>
   <tr>
     <th>Título</th>
+    <th>Imagem</th>
     <th>Descrição</th>
     <th>Preço</th>
     <th>Validade</th>
@@ -11,6 +12,7 @@
 <% @produtos.each do |produto| %>
   <tr>
     <td><%=h produto.titulo %></td>
+    <td><%= image_tag produto.imagem.url(:pequena) %></td>
     <td><%=h truncate(produto.descricao, :ommision => "...", :length => 35) %></td>
     <td><%= numero_em_reais(produto.preco) %></td>
     <td><%=h produto.validade.strftime("%d/%m/%Y") %></td>

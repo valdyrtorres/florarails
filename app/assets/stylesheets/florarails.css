@@ -151,4 +151,75 @@ h6 {font-size:0.5em;}
 
 th {font-size:0.7em;color:#999;width:770px;}
 td {font-size:0.7em;background:#ffffcc;color:#3333cc;}
+
+.fieldWithErrors {
+	padding: 2px;
+	background-color: #ffcccc;
+	display: table;
+}
+
+#ErrorExplanation {
+	width: 400px;
+	border: 2px solid red;
+	padding: 7px;
+	padding-bottom: 12px;
+	margin-bottom: 20px;
+	background-color: #fcc;
+}
+
+#ErrorExplanation h2 {
+	text-align: left;
+	font-weight: bold;
+	padding: 20px 20px 20px 20px;
+	font-size: 12px;
+	margin: -7px;
+	background: red url(../images/exclamation.png) no-repeat 5px center;
+	color: #fff;
+}
+#ErrorExplanation p {
+	color: #333;
+	margin-bottom: 0;
+	padding: 5px;
+}
+#ErrorExplanation ul li {
+	font-size: 12px;
+	list-style: square;
+}
+
+/*Eliminando o sublinhado nos links */
+a:link {text-decoration: none}
+a:visited {text-decoration: none}
+a:hover {text-decoration: underline; color: #FF0000;}
+a:active {text-decoration: none}
+/* Uma entrada do catálogo */
+#catalogo .entrada form, #catalogo .entrada form div {display: inline;}
+#catalogo .entrada {
+	border-top: 1px dotted #FF7400;
+	font-size: 100%;
+	font-family: verdana;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 15px 10px 10px 10px;
+}
+#catalogo .entrada h7 {
+	margin-top: 5px;
+	margin-bottom: 15px;
+	color: #227;
+	background: #ffffcc;
+	font-family: sans-serif;
+	font-size: 150%;
+	font-weight: bold;
+}
+#catalogo .entrada p {
+	color: #FF7400;
+	font-size: 1.2em;
+	font-weight: bold;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-family: sans-serif;
+	font-size: 1.0em;
+}
+#catalogo .entrada .adicionar-no-carrinho {
+	position: relative;
+}
 /* Fim da folha de estilo */

@@ -1,25 +1,16 @@
-<p id="notice"><%= notice %></p>
+<h2>Detalhes do produto <%= @produto.titulo %></h2>
+<h4>
+<p>Código: <%= @produto.id %></p>
+<p>Descrição: <%=h @produto.descricao %></p>
+<p>Imagem: <%= image_tag @produto.imagem.url(:thumb) %></p>
+<p>Valor: <%=h @produto.preco %></p>
+<p>Validade: <%= @produto.validade.strftime("%d/%m/%Y") %></p>
+<p>Grupo: <%=h @produto.grupo.descricao %></p>
+<p>Data do Cadastro: <%= @produto.created_at.strftime("%d/%m/%Y %H:%M") %></p>
+</h4>
 
 <p>
-  <b>Titulo:</b>
-  <%= @produto.titulo %>
+	<%= link_to 'Voltar', produtos_path %>
+    <%= link_to 'Editar' , edit_produto_path %>
+    <%= link_to 'Excluir', produto_path, method: :delete, data: { confirm: 'Você tem certeza que deseja apagar o produto?' } %>
 </p>
-
-<p>
-  <b>Descricao:</b>
-  <%= @produto.descricao %>
-</p>
-
-<p>
-  <b>Preco:</b>
-  <%= @produto.preco %>
-</p>
-
-<p>
-  <b>Validade:</b>
-  <%= @produto.validade %>
-</p>
-
-
-<%= link_to 'Edit', edit_produto_path(@produto) %> |
-<%= link_to 'Back', produtos_path %>

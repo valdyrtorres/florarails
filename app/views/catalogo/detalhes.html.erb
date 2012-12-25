@@ -1,0 +1,43 @@
+<h1>Categoria: <%= @produto.grupo.descricao %></h1>
+<h2><%=h @produto.titulo %></h2>
+<td><%= image_tag(@produto.imagem_url(:media),
+                                      :id => "foto", :alt => @produto.titulo,
+                                      :title => @produto.titulo) %>
+</td><br>
+<!-- Efeitos utilizando Script.aculo.us Javascript -->
+<%= link_to function(image_tag("zoom_out.jpg",
+    :border=>0, :alt=>"Botão para reduzir a imagem",
+    :title=>"Clique para reduzir a imagem"),
+    "new Effect.Scale('foto', 70, { scaleX: true, scaleY: true})); return false;") %>
+<%= link_to function(image_tag("zoom_in.jpg",
+	:border=>0, :alt=>"Botão para ampliar a imagem",
+	:title=>"Clique para ampliar a imagem"),
+	"new Effect.Scale('foto', 130, { scaleX: true, scaleY: true})); return false;") %>
+<%= link_to function(image_tag("esconder.gif",
+	:border=>0, :alt=>"Botão para ocultar a imagem",
+	:title=>"Clique para ocultar a imagem"),
+	"new Effect.BlindUp('foto'); return false;") %>
+<%= link_to function(image_tag("mostrar.gif",
+	:border=>0, :alt=>"Botão para mostrar a imagem",
+	:title=>"Clique para ocultar a imagem"),
+	"new Effect.BlindDown('foto'); return false;") %>
+<div>
+<p>
+	<div id="detalhes">
+		<h3> <%=h @produto.descricao %> <br></h3>
+	</div>
+	
+	<!-- Exemplo de efeito utilizando Prototype Javascript -->
+	<td>
+	<%= link_to_function('Mostrar/Ocultar detalhes', "Element.toggle('detalhes')") %>
+	<div class="entrada">
+	<p>Valor: <%= numero_em_reais(@produto.preco) %></td></p>
+	<%= link_to "#{image_tag("carrinho.gif",
+	    :alt => "botão carrinho de compras",
+	    :title=>"Adicione "+@produto.titulo+ " no carrinho de compras",
+	    :size=> "24x24",
+	    :border=>0)}",
+	    {:controller=> :catalogo,
+		:action => :adicionar_no_carrinho,
+		:id => @produto} %></p></div>
+</div>

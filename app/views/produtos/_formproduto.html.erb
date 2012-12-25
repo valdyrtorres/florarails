@@ -1,4 +1,4 @@
-<%= form_for(@produto) do |form| %>
+<%= form_for(@produto, :html => {:multipart => true}) do |form| %>
     <%= form.error_messages %>
     <p>
        <%= form.label :titulo, "Título" %></br>
@@ -19,6 +19,10 @@
        :order => [:day, :month, :year],
        :use_month_numbers => true) %></p>
 
+   	<p>
+       <%= form.label :imagem %></br>
+       <%= form.file_field :imagem %></p>
+
 	<p>
        <%= form.label :grupo, "Grupo" %></br>
        <%= form.select :grupo_id, 
@@ -28,4 +32,3 @@
 
 </fieldset>
 <% end %>
-<%= link_to 'Voltar', produtos_path %>
