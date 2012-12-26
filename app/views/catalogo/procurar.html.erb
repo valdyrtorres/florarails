@@ -1,0 +1,9 @@
+<% if @produtos.size > 0 %>
+<h1>Filtro de Produtos</h1>
+<h2>Busca de produtos - procurando '<%= @termo %>'</h2>
+<p>A sua busca por "<%= @termo %>" encontrou <%= pluralize @produtos.size, "produto" %>:</p>
+<% else %>
+<%= flash[:info] = "Não há nenhum produto com o critério de busca " + @termo %>
+<% end %>
+<%=render :partial => 'itens_procurar' %>
+

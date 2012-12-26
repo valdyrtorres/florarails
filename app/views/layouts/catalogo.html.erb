@@ -13,6 +13,13 @@
 		FloraRails: Sua floricultura na web
 	</div>
 	<div id="menu">
+            <div id="procurar">
+                <% form_for :form, :url => {:action => "procurar" },
+                   :method=> :get do |f| %>
+                   Procurar: <%= text_field_tag :busca %>
+                   <%= submit_tag 'Ok' %>
+                <% end %>
+            </div>
 		<li><a href="#a">Home</a></li>
 		<li><a href="#b">Login</a></li>
 		<li><a href="#c">Logout</a></li>

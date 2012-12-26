@@ -1,0 +1,34 @@
+<% for produto in @produtos %>
+<p>
+  Encontrado em <%= produto.grupo.descricao %>
+  <%= link_to ">> Mais produtos nessa categoria", :controller => "catalogo",
+      :action => "lista_itens_grupo", :grupo => produto.grupo.id %><br>
+</p>
+<table>
+  <tr>
+    <td>
+     <%= link_to "#{image_tag(produto.imagem.url(:thumb),
+         :alt => produto.titulo, :title=> produto.titulo,
+         :border=>0)}", {:controller => "catalogo", :action => detalhes,
+         :id => produto} %>
+    </td>
+    <td width=80%>
+     <%=h truncate(produto.descricao,
+          :ommision => "...", :length => 100) %>         
+    </td>
+    <td> 
+     <%= numero_em_reais(produto.preco) %>
+    </td>
+    <td>
+     <%= link_to "#{image_tag("carrinho.gif",
+         :alt => "botão carrinho de compras", 
+         :title=> "Coloque este produto no carrinho de compras",
+         :size=> "24x24",
+         :border=>0)}", 
+        {:controller => "catalogo", :action => :adicionar_no_carrinho,
+         :id => produto} %>
+    </td>
+  </tr>
+</table>
+<% end %>
+

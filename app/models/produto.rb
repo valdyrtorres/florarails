@@ -9,6 +9,11 @@ class Produto < ActiveRecord::Base
     #find(:all, :order => "titulo",:conditions => ['validade >= ?', Date.current])
     find(:all, :order => "titulo")
   end
+
+  def self.lista_produto_grupo(grupo)
+     find(:all, :order => "titulo",
+        :conditions => ['validade >= ? and grupo_id = ?', Date.current, grupo])
+  end
   
   def to_param
     require 'iconv'
