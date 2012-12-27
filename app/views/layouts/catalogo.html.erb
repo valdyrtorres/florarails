@@ -30,7 +30,11 @@
 		<div id="lateral">
 			<ul>
 				<li>Categorias
-				<li><a href="#">...</a>
+                                <% for grupo in Grupo.find(:all) %>
+				<li><%= link_to grupo.descricao,
+                                       {:controller => "catalogo", :action => "lista_itens_grupo",
+                                        :grupo => grupo.id} %></li>
+                                <% end %>
 			</ul>
 		</div>
 		<div id="direita">

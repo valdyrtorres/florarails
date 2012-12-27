@@ -1,7 +1,10 @@
 Florarails::Application.routes.draw do
-  get "catalogo/index"
-  get "catalogo/detalhes"
-  get "catalogo/adicionar_no_carrinho"
+  #get "catalogo/index"
+  get "catalogo/procurar"
+  match 'catalogo/:id/detalhes' => 'catalogo#detalhes', :as => :detalhes
+  match 'catalogo/:id/procurar' => 'catalogo#procurar', :as => :procurar
+  match 'catalogo/:id/adicionar_no_carrinho' => 'catalogo#adicionar_no_carrinho', :as => :adicionar_no_carrinho
+  match 'catalogo/:id/lista_itens_grupo(/:id)' => 'catalogo#lista_itens_grupo', :as => :lista_itens_grupo
 
   resources :produtos
 
