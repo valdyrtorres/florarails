@@ -2,7 +2,7 @@
 #Um wrapper permite que um objeto cliente utilize serviços
 #de outros objetos com interfaces diferentes pr meio de uma
 #interface única.
-reuire 'open-uri'
+require 'open-uri'
 class ClientesController < ApplicationController
 
    #Em vez de utilizarmos o layout padrão, estamos definindo outro
@@ -12,14 +12,13 @@ class ClientesController < ApplicationController
    def show
       @cliente = Cliente.find(params[:id])
    end
-
    def new
       @cliente = Cliente.new
    end
 
    def create
       @cliente = Cliente.new(params[:clientes])
-      :respond_to do |format|
+      respond_to do |format|
       if @cliente.save
          flash[:aviso] = 'Seus dados foram salvos!'
          format.html { redirect_to(@cliente) }
@@ -66,14 +65,14 @@ class ClientesController < ApplicationController
          p = p.spli("=")
          dados[p[0]] = p[1] if p[0]
       }
-      dados['resultado_txt'] = case dados['resultado']
-         when  "1": "CEP encontrado!"
-         when "-1": "CEP não encontrado!"
-         when "-2": "CEP Inválido!"
-         when "-3": "Limite de buscas excedido!"
-         when "-4": "Seu IP foi banido!"
-         else "Erro desconhecido!"
-      end
+     # dados['resultado_txt'] = case dados['resultado']
+     #    when  "1" then puts "CEP encontrado!"
+     #    when "-1" then puts "CEP não encontrado!"
+     #    when "-2" then puts "CEP Inválido!"
+     #    when "-3" then puts "Limite de buscas excedido!"
+     #    when "-4" then puts "Seu IP foi banido!"
+     #    else puts "Erro desconhecido!"
+     # end
       return dados   
    end
 end
