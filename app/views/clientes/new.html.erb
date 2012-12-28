@@ -1,0 +1,72 @@
+<% form_for(@clientes) do |f| %>
+   <%= f.error_messages %>
+   <fieldset>
+   <legend>Informe os seus dados:</legend>
+   <table>
+      <tr>
+         <td colspan="2">Nome: <br><%= f.text_field :nome, 
+             :maxlength => 60, :size => 50 %>
+         </td>
+      </tr>
+      <tr>
+         <td colspan="2">e-mail: <br><%= f.text_field :e-mail, 
+             :maxlength => 60, :size => 50 %>
+         </td>
+      </tr>
+      <tr>
+         <td colspan="2">Senha: <br><%= f.password_field :senha, 
+             :maxlength => 60, :size => 20 %>
+         </td>
+         <td>Confirmação da Senha: <br><%= f.password_field :senha_confirmation, 
+             :maxlength => 60, :size => 20 %>
+         </td>
+      </tr>
+      <tr>
+         <td>CPF: 999.999.999-99 <br><%= f.text_field :cpf, 
+             :maxlength => 14, :size => 14 %>
+         </td>
+         <td>Telefone: (99)9999-9999<br><%= f.text_field :telefone, 
+             :maxlength => 13, :size => 13 %>
+         </td>
+         <td colspan="2">
+            <%= f.label "Cep" %><br>
+            <%= f.text_field :cep, :maxlength => 8, :size => 8 %>
+            <%= text_field_tag 'mensagem_cep', '', :disable=> true, :size => 35 %><br>
+            <%= link_to_remote 'Localizar CEP', :url => {:controller=>'clientes',
+                :action => 'buscar_cep' }, 
+                :loading => "Element.show('aguarde_cep')",
+                :complete => "Element.hide('aguarde_cep')", 
+                :with => "'cep='" + $('cliente_cep').value" %>
+            <img alt="Aguarde enquanto o CEP é localizado" id="aguarde_cep" src="/images/aguarde.gif" style="display:none;"/>
+         </td>
+      </tr>
+      <tr>
+         <td>Cidade: <br><%= f.text_field :cidade, 
+             :maxlength => 60, :size => 20 %>
+         </td>
+         <td>UF: <br><%= f.text_field :uf, 
+             :maxlength => 2, :size => 2 %>
+         </td>
+      </tr>
+      <tr>
+         <td colspan="2">Endereço: <br><%= f.text_field :logradouro, 
+             :maxlength => 100, :size => 50 %>
+         </td>
+      </tr>
+      <tr>
+         <td>Complemento: <br><%= f.text_field :complemento, 
+             :maxlength => 20, :size => 10 %>
+         </td>
+         <td>Bairro<br><%= f.text_field :bairro, 
+             :maxlength => 60, :size => 30 %>
+         </td>
+      </tr>
+   </fieldset>
+   </table>
+   <p>
+   <%= f.submit "Gravar" %>
+   </p>
+   <% end %>
+   <%= link_to 'Voltar',
+       :controller => 'catalogo', :action => 'index' %>
+
