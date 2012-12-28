@@ -1,0 +1,16 @@
+<h2><%= @cliente.nome %>, aqui estão seus dados: </h2>
+<h4>
+<p>Código: <%= @cliente.id %></p>
+<p>e-mail: <%=h @cliente.email %></p>
+<p>CPF: <%=h @cliente.cpf %></p>
+<p>Telefone: <%=h @cliente.cep %></p>
+<p>CEP: <%=h @cliente.cep %></p>
+<p>Cidade: <%=h @cliente.cidade %></p>
+<p>UF: <%=h @cliente.uf %></p>
+<p>Endereço: <%=h @cliente.logradouro %></p>
+<p>Complemento: <%=h @cliente.complemento %></p>
+<p>Bairro: <%=h @cliente.bairro %></p>
+</h4>
+<p>
+<%= link_to 'Voltar', :controller => 'catalogo', :action => 'index' %>
+</p>

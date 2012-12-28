@@ -68,5 +68,6 @@ Florarails::Application.routes.draw do
   # match ':controller(/:action(/:id))(.:format)'
   resources :grupos
   resources :catalogo
+  resources :clientes
   
 end
