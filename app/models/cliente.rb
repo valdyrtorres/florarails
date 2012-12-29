@@ -4,11 +4,12 @@
 require 'digest/sha2'
 
 class Cliente < ActiveRecord::Base
-  attr_accessible :bairro, :cep, :cidade, :complemento, :cpf, :email, :tipo_logradouro, :logradouro, :nome, :senha, :telefone, :uf
+  attr_accessible :bairro, :cep, :cidade, :complemento, :cpf, :email, 
+                  :tipo_logradouro, :logradouro, :nome, :senha, :senha_confirmation, :telefone, :uf
 
   #O método attr_acessor fornece uma alternativa mais curta que
   #usar ambos os métodos attr_reader e attr_writer
-  attr_acessor :senha_confirmation
+  attr_accessor :senha_confirmation
   #Definindo o método que deverá ser executado antes de salvar o
   #registro
   before_save :criptografa_senha

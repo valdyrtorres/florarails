@@ -69,5 +69,6 @@ Florarails::Application.routes.draw do
   resources :grupos
   resources :catalogo
   resources :clientes
+  match 'clientes/buscar_cep' => 'clientes#buscar_cep', :as => :buscar_cep
   
 end

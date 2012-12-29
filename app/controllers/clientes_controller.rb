@@ -1,3 +1,5 @@
+# encoding: utf-8
+# O comentário acima é para aceitar caracteres com acento
 #OpenURI é um wrapper para utilizar http, https e ftp.
 #Um wrapper permite que um objeto cliente utilize serviços
 #de outros objetos com interfaces diferentes pr meio de uma
@@ -12,18 +14,20 @@ class ClientesController < ApplicationController
    def show
       @cliente = Cliente.find(params[:id])
    end
+   
    def new
       @cliente = Cliente.new
    end
 
    def create
-      @cliente = Cliente.new(params[:clientes])
+      @cliente = Cliente.new(params[:cliente])
       respond_to do |format|
-      if @cliente.save
-         flash[:aviso] = 'Seus dados foram salvos!'
-         format.html { redirect_to(@cliente) }
-      else
-         format.html { render :action => "new" }
+         if @cliente.save
+           flash[:aviso] = 'Seus dados foram salvos!'
+           format.html { redirect_to(@cliente) }
+         else
+           format.html { render :action => "new" }
+         end
       end
    end
 
@@ -65,14 +69,14 @@ class ClientesController < ApplicationController
          p = p.spli("=")
          dados[p[0]] = p[1] if p[0]
       }
-     # dados['resultado_txt'] = case dados['resultado']
-     #    when  "1" then puts "CEP encontrado!"
-     #    when "-1" then puts "CEP não encontrado!"
-     #    when "-2" then puts "CEP Inválido!"
-     #    when "-3" then puts "Limite de buscas excedido!"
-     #    when "-4" then puts "Seu IP foi banido!"
-     #    else puts "Erro desconhecido!"
-     # end
+      dados['resultado_txt'] = case dados['resultado']
+         when  "1" then puts "CEP encontrado!"
+         when "-1" then puts "CEP não encontrado!"
+         when "-2" then puts "CEP Inválido!"
+         when "-3" then puts "Limite de buscas excedido!"
+         when "-4" then puts "Seu IP foi banido!"
+         else puts "Erro desconhecido!"
+      end
       return dados   
    end
 end
